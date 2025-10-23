@@ -6,19 +6,15 @@ public class MonthlyPower {
 
     // a) print power usage for a month
     public static void print_PowerUsage(double[][] usage) {
-        for (double[] usage1 : usage) {
-            for (double _usage1 : usage1) {
-                System.out.printf("%.2f kWh ", _usage1);
-            }
+        for (double[] _use : usage) {
+            DailyPower.printPowerUsage(_use);
         }
     }
 
     // b) print power prices for a month
     public static void print_PowerPrices(double[][] prices) {
         for (double[] _prices : prices) {
-            for (double price : _prices) {
-                System.out.printf("%.2f kWh ", price);
-            }
+            DailyPower.printPowerPrices(_prices);
         }
     }
 
@@ -26,9 +22,8 @@ public class MonthlyPower {
     public static double computePowerUsage(double[][] usage) {
         double sum = 0;
 
-        for (int i=0; i<usage.length;i++) {
-            for (int z=0; z<usage[i].length;z++)
-                sum+=usage[i][z];
+        for (double[] _use : usage) {
+            sum += DailyPower.computePowerUsage(_use);
         }
 
         return sum;
@@ -43,11 +38,11 @@ public class MonthlyPower {
     public static double computeSpotPrice(double[][] usage, double[][] prices) {
         double sum = 0;
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                sum += usage[i][j] * prices[i][j];
-            }
+        for (int i = 0; i < usage.length; i++) {
+            sum += DailyPower.computeSpotPrice(usage[i],prices[i]);
         }
+
+        return sum;
     }
 
     // f) power support for the month
@@ -55,24 +50,20 @@ public class MonthlyPower {
         double sum = 0;
 
         for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (usage[i][j] * prices[i][j] ) {
-                    
-                }
-                sum += usage[i][j] * prices[i][j];
-            }
+            sum += DailyPower.computePowerSupport(usage[i], prices[i]);
         }
 
-        return support;
+        return sum;
     }
 
     // g) Norgesprice for the month
     public static double computeNorgesPrice(double[][] usage) {
+        double sum = 0;
+        
+        for (double[] _use : usage) {
+            sum += DailyPower.computeNorgesPrice(_use);
+        }
 
-        double price = 0;
-
-        // TODO
-
-        return price;
+        return sum;
     }
 }
