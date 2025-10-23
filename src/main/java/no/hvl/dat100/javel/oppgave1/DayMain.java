@@ -28,6 +28,6 @@ public class DayMain {
         double avgPrice = 0;
 
 
-        TestDailyPower.TestAllNoneVoid(powerusage_day, powerprices_day, powerUsage, spotPrice, powerSupport, norgesPrice, peakUsage, avgPower, avgPrice)
+        TestDailyPower.TestAllNoneVoid(powerusage_day, powerprices_day, powerUsage, spotPrice, powerSupport, norgesPrice, peakUsage, avgPower, avgPrice);
     }
 }
