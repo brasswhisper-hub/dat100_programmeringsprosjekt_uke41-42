@@ -51,7 +51,4 @@ public class Customer {
     public String toString() {
         return "Customer number: "+customer_id+"\nname: "+name+"\nemail: "+email+"\nagreement: "+agreement;
     }
-    
-    // Tester metoder i CustomerMain
-    }
 }
