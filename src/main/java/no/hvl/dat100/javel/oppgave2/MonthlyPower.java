@@ -41,12 +41,11 @@ public class MonthlyPower {
 
     // e) compute spot price
     public static double computeSpotPrice(double[][] usage, double[][] prices) {
-
-        double price = 0;
-
-        // TODO
-
-        return price;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                
+            }
+        }
     }
 
     // f) power support for the month
