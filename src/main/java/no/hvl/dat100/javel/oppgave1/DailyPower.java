@@ -1,5 +1,6 @@
 package no.hvl.dat100.javel.oppgave1;
 
+import jdk.jfr.Percentage;
 import jdk.jfr.Threshold;
 
 public class DailyPower {
@@ -51,29 +52,31 @@ public class DailyPower {
     private static double getSupport(double usage, double price) {
         if (usage*price < THRESHOLD) { return 0.0; }
 
-        return (usage*price - THRESHOLD);
+        return (usage*price - THRESHOLD) * PERCENTAGE;
     }
 
     // f) compute power support for a single day
     public static double computePowerSupport(double[] usage, double[] prices) {
-
-        double support = 0;
-
-        // TODO
-
-        return support;
+        double sum = 0;
+        
+        for(int i = 0; i < usage.length; i++){
+            sum += getSupport(usage[i], prices[i]);
+        }
+        
+        return sum;
     }
 
     private static final double NORGESPRIS_KWH = 0.5;
 
     // g) compute norges pris for a single day
     public static double computeNorgesPrice(double[] usage) {
+        double sum = 0;
 
-        double price = 0;
+        for(double _use : usage){
+            sum += _use * NORGESPRIS_KWH;
+        }
 
-        // TODO
-
-        return price;
+        return sum;
     }
 
     // g) compute peak usage during a single day
