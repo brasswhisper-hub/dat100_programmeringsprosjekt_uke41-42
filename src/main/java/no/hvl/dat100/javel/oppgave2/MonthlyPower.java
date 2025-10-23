@@ -6,25 +6,24 @@ public class MonthlyPower {
 
     // a) print power usage for a month
     public static void print_PowerUsage(double[][] usage) {
-        for (int i=0; i<usage.length;i++) {
-            for (int z=0; z<usage[i].length;z++)
-            System.out.printf("%.2f kWh ",usage[i][z]);
+        for (double[] usage1 : usage) {
+            for (double _usage1 : usage1) {
+                System.out.printf("%.2f kWh ", _usage1);
+            }
         }
-
     }
 
     // b) print power prices for a month
     public static void print_PowerPrices(double[][] prices) {
-        for (int i=0; i<prices.length;i++) {
-            for (int z=0; z<prices[i].length;z++) {
-                System.out.printf("%.2f kWh ",prices[i][z]);
+        for (double[] _prices : prices) {
+            for (double price : _prices) {
+                System.out.printf("%.2f kWh ", price);
             }
         }
     }
 
     // c) compute total power usage for a month
     public static double computePowerUsage(double[][] usage) {
-
         double sum = 0;
 
         for (int i=0; i<usage.length;i++) {
@@ -37,21 +36,7 @@ public class MonthlyPower {
 
     // d) determine whether a given threshold in powerusage for the month has been exceeded
     public static boolean exceedThreshold(double[][] powerusage, double threshold) {
-
-        boolean exceeded = false;
-        double usage = 0;
-        while (usage<=threshold &&!exceeded) {
-            for (int i=0; i<powerusage;i++) {
-                for (int z = 0; z < powerusage[i]; z++) {
-                    if (powerusage[i][z] >= threshold) {
-                        exceeded=true;
-                    } else {
-                        exceeded=false;
-                    }
-                    }
-                }
-            }
-        return exceeded;
+        return computePowerUsage(powerusage) > threshold;
     }
 
     // e) compute spot price
