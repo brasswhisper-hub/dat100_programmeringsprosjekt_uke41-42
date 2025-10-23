@@ -1,6 +1,6 @@
 package no.hvl.dat100.javel.oppgave1;
 
-import no.hvl.dat100.javel.oppgave2.MonthlyPower;
+import test.TestDailyPower;
 
 public class DayMain {
 
@@ -16,13 +16,18 @@ public class DayMain {
         System.out.println("==============");
         System.out.println();
 
-        /*
-        TODO
+        TestDailyPower.TestPrintPowerPrices(powerprices_day);
+        TestDailyPower.TestPrintPowerUsage(powerusage_day);
 
-         Write code that tests the methods you implement in the DailyPower class
-         Remember to teste the methods as you implement them
-         Remember to also to check that you get the expected results
-         */
+        double powerUsage = 0;
+        double spotPrice = 0;
+        double powerSupport = 0;
+        double norgesPrice = 0;
+        double peakUsage = 0;
+        double avgPower = 0;
+        double avgPrice = 0;
 
+
+        TestDailyPower.TestAllNoneVoid(powerusage_day, powerprices_day, powerUsage, spotPrice, powerSupport, norgesPrice, peakUsage, avgPower, avgPrice)
     }
 }
