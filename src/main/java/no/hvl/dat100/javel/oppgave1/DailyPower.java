@@ -1,8 +1,5 @@
 package no.hvl.dat100.javel.oppgave1;
 
-import jdk.jfr.Percentage;
-import jdk.jfr.Threshold;
-
 public class DailyPower {
 
     // a) print power prices during a day
