@@ -81,20 +81,23 @@ public class DailyPower {
 
     // g) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
+        double max = 0;
+        for(double _use : usage) {
+            if ( max < _use) {
+                max = _use;
+            }
+        }
 
-        double temp_max = 0;
-
-        // TODO
-
-        return temp_max;
+        return max;
     }
 
     public static double findAvgPower(double[] usage) {
+        double sum = 0;
 
-        double average = 0;
+        for(double _use : usage){
+            sum += _use;
+        }
 
-        // TODO
-
-        return average;
+        return sum / usage.length;
     }
 }
