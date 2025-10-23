@@ -40,17 +40,6 @@ public class Customer {
     public String toString() {
         return "Customer number "+customer_id+"\n name "+name+"\n email "+email+"\n agreement "+agreement;
     }
-    // tester metoder
-    public static void main(String[] args) {
-        Customer c1 = new Customer("ola nordmann","ola.nordm@ann.no",202,PowerAgreementType.NORGESPRICE);
-        c1.setName("Ola Nordmann");
-        c1.setEmail("Ola.Nordm@nn.no");
-        c1.setCustomer_id(404);
-        c1.setAgreement(PowerAgreementType.NORGESPRICE);
-        c1.getName();
-        c1.getEmail();
-        c1.getCustomer_id();
-        c1.getAgreement();
-        c1.toString();
+    // Tester metoder i CustomerMain
     }
 }
