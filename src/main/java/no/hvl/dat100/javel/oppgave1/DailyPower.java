@@ -97,4 +97,14 @@ public class DailyPower {
 
         return sum / usage.length;
     }
+
+    public static double AvgPrice(double[] dayPrices) {
+        double sum = 0;
+
+        for (double price : dayPrices) {
+            sum += price;
+        }
+
+        return sum / dayPrices.length;
+    }
 }
