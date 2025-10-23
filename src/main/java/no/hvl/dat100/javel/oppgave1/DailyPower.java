@@ -1,5 +1,7 @@
 package no.hvl.dat100.javel.oppgave1;
 
+import jdk.jfr.Threshold;
+
 public class DailyPower {
 
     // a) print power prices during a day
@@ -47,12 +49,9 @@ public class DailyPower {
     private static final double PERCENTAGE = 0.9;
 
     private static double getSupport(double usage, double price) {
+        if (usage*price < THRESHOLD) { return 0.0; }
 
-        double support = 0;
-
-        // TODO
-
-        return support;
+        return (usage*price - THRESHOLD);
     }
 
     // f) compute power support for a single day
