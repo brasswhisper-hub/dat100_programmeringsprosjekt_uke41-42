@@ -66,4 +66,14 @@ public class MonthlyPower {
 
         return sum;
     }
+
+    public static Double AvgPrice(double[][] monthlyPrices) {
+        double sum = 0;
+
+        for (double[] dayprices : monthlyPrices) {
+            sum += DailyPower.AvgPrice(dayprices);
+        }
+
+        return sum / monthlyPrices.length;
+    }
 }
