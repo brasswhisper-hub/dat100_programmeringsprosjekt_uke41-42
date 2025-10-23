@@ -12,6 +12,12 @@ public class Customer {
         this.customer_id=customer_id;
         this.agreement=agreement;
     }
+    public Customer(int customer_id) {
+        this.name="null";
+        this.email="null";
+        this.customer_id=customer_id;
+        this.agreement=PowerAgreementType.SPOTPRICE;
+    }
 // get/set metoder
     public void setName(String name) {
         this.name=name;
@@ -19,27 +25,30 @@ public class Customer {
     public String getName() {
         return name;
     }
+
     public void setEmail(String email) {
         this.email=email;
     }
     public String getEmail() {
         return email;
     }
+
     public void setCustomer_id(int customer_id) {
         this.customer_id=customer_id;
     }
     public int getCustomer_id() {
         return customer_id;
     }
+
     public void setAgreement(PowerAgreementType agreement) {
         this.agreement=agreement;
     }
     public PowerAgreementType getAgreement() {
         return agreement;
     }
+
+    @Override
     public String toString() {
-        return "Customer number "+customer_id+"\n name "+name+"\n email "+email+"\n agreement "+agreement;
-    }
-    // Tester metoder i CustomerMain
+        return "Customer number: "+customer_id+"\nname: "+name+"\nemail: "+email+"\nagreement: "+agreement;
     }
 }
