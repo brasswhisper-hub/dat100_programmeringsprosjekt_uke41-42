@@ -1,6 +1,7 @@
 package no.hvl.dat100.javel.oppgave4;
 
 import no.hvl.dat100.javel.oppgave3.Customer;
+import no.hvl.dat100.javel.oppgave3.PowerAgreementType;
 
 public class Customers {
 
@@ -13,16 +14,12 @@ public class Customers {
 
     // b) count number of non-null references
     public int countNonNull() {
-
-
+        
         int count = 0;
 
         for (int i = 0; i <= customers.length; i++) {
-            if (customers[i] == null) {
+            if (customers[i] != null) {
                 count += 1;
-                i++;
-            } else {
-                i++;
             }
         }
 
@@ -31,62 +28,52 @@ public class Customers {
 
     // c) return reference to customer with given id (if exists)
     public Customer getCustomer(int customer_id) {
-
-        boolean funnet = false;
-        Customer c = null;
-        while (!funnet) {
-            for (int i = 0; i < customers.length; i++) {
-                if (customers[i].getCustomer_id() == customer_id ) {
-                    c = customers[i];
-                    funnet = true;
-                } else {
-                    i++;
-                    funnet = false;
-                }
+        for (Customer customer : customers) {
+            if (customer.getCustomer_id() == customer_id) {
+                return customer;
             }
-
         }
-        return c;
+
+        return new Customer(customer_id);
     }
 
     // d) add a customer to the reference table
     public boolean addCustomer(Customer c) {
-
-        boolean inserted = false;
-        while (!inserted) {
-            for (int i = 0; i < customers.length; i++) {
-
-                if (customers[i] == null) {
-                    customers[i] = c;
-                    inserted = true;
-                }
-            }
+        try {
+            customers[customers.length] = c;            
+        } catch (Exception e) {
+            return false;
         }
-        return inserted;
+        return true;
     }
 
     // e) remove customer with given id from reference table
     public Customer removeCustomer(int customer_id) {
-
-        boolean deleted = false;
+        
+        // offloading  the customers list to cs
+        Customer[] cs = customers;
+        customers = new Customer[cs.length];
+        
         Customer c = null;
 
-        for (int i = 0; i < customers.length; i++) {
-            if (customers[i].getCustomer_id() == customer_id) {
-                customers[i] = c;
+        int i = 0;
+        for (Customer customer : customers) {
+            if (customer.getCustomer_id() == customer_id) {
+                c = customer;
+            }
+            else {
+                customers[i++] = customer;
             }
         }
-
+        
         return c;
     }
 
     // f) return reference table with all customers
     public Customer[] getCustomers() {
-
-        Customer[] customers = null;
-
-        // TODO
-
+        /* isn't this just the "getter" part of a
+         * "get" "set" pair for a private variable?
+        */
         return customers;
     }
 }
