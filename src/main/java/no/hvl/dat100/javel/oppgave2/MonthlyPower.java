@@ -41,19 +41,27 @@ public class MonthlyPower {
 
     // e) compute spot price
     public static double computeSpotPrice(double[][] usage, double[][] prices) {
+        double sum = 0;
+
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                
+                sum += usage[i][j] * prices[i][j];
             }
         }
     }
 
     // f) power support for the month
     public static double computePowerSupport(double[][] usage, double[][] prices) {
+        double sum = 0;
 
-        double support = 0;
-
-        // TODO
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (usage[i][j] * prices[i][j] ) {
+                    
+                }
+                sum += usage[i][j] * prices[i][j];
+            }
+        }
 
         return support;
     }
